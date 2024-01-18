@@ -8,6 +8,8 @@ import { getProfilesRoute } from "./routes/get-profile";
 import { deleteProfileRoute } from "./routes/delete-matches";
 import { getProfileEditRoute } from "./routes/get-profile-edit";
 import { getSearchRoute } from "./routes/get-search";
+import { saveImageProfileRoute } from "./routes/save-image-profile";
+import { getImageProfileRoute } from "./routes/get-image-profile";
 
 dotenv.config();
 async function main(): Promise<void> {
@@ -23,6 +25,8 @@ async function main(): Promise<void> {
   app.delete("/profile/:cpf", deleteProfileRoute());
   app.get("/profile-edit/:cpf", getProfileEditRoute());
   app.get("/search", getSearchRoute());
+  app.post("/image-profile", saveImageProfileRoute());
+  app.get("/image-profile", getImageProfileRoute());
 
   const port: any = process.env.PORT || 3030;
   const ip = process.env.IP || '0.0.0.0';

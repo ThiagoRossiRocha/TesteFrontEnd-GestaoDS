@@ -47,3 +47,29 @@ body {
 .nav-link {
   color: #656565;
 }
+
+.loader {
+  border: 0.5vh solid var(--background-color-darken);
+  border-top: 0.5vh solid var(--primary-color-darken);
+  border-radius: 50%;
+  width: 3vh;
+  height: 3vh;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 17vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageProfile {
+  border: 0;
+  border-radius: 10vh;
+  box-shadow: 0 0 0.5vh rgba(0, 0, 0, 0.5);
+  align-items: center;
+}

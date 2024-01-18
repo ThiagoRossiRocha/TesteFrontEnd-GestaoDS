@@ -8,7 +8,7 @@ import { Pacientes } from "./pages/pacientes/pacientes";
 
 const router = createBrowserRouter([
   {
-    path: "/pacientes",
+    path: "/",
     element: <Pacientes />,
     errorElement: <ErrorPage />,
   },

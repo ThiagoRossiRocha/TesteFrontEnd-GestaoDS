@@ -10,8 +10,8 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { BsSearch } from "react-icons/bs";
-import imageProfile from "../images/profile.png";
 import toast from "react-hot-toast";
+import ImageCropper from "./ImageCropper";
 
 interface Props {
   showModal: boolean;
@@ -142,6 +142,10 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
     }
   };
 
+  const handleImageUpload = (base64Image: string) => {
+    console.log("Imagem base64:", base64Image);
+  };
+
   return (
     <div>
       <Modal show={showModal} onHide={handleClose} size="lg">
@@ -173,7 +177,14 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
               <Form>
                 <Row>
                   <Col md={4}>
-                    <img src={imageProfile} className="mx-auto" />
+                    <Form.Group controlId="formFotoPerfil">
+                      <Form.Label>Foto de Perfil</Form.Label>
+                      <ImageCropper
+                          onImageUpload={(base64Image) =>
+                          handleImageUpload(base64Image)
+                        }
+                      />
+                    </Form.Group>
                   </Col>
                 </Row>
                 <br />

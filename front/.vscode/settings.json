@@ -1,0 +1,8 @@
+{
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#284e5a",
+        "titleBar.activeBackground": "#284e5a",
+        "titleBar.activeForeground": "#ffffff"
+    }
+}
