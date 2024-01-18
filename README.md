@@ -3,6 +3,30 @@
 ## Objetivo
 Avaliar as habilidades do candidato em desenvolvimento front-end, especificamente utilizando React. Este teste inclui a implementação de um conjunto de telas com base em um design fornecido no Figma. As bibliotecas utilizadas são de escolha do candidato, mas alguns diferenciais podem ser considerados.
 
+## Tecnologias 
+- TypeScript.
+- React.
+- Node.
+- MongoDB.
+
+## Esturura 
+### API
+| Path                | Descrição                                      
+| ------------------- | ---------------------------------------------- 
+| .src/db/mongo.ts    | Conexão com o banco de dados                   
+| .src/routes         | Funções das rotas de Back-end                   
+| .src/server.ts      | Rotas de Back-end e início do servidor          
+| .env                | Variáveis de ambiente                          
+            
+
+### APP
+| Path | Descrição                               
+| -------------------- | --------------------------------------- 
+| .src/components      | Componentes isolados para reutilização           
+| .src/images          | Imagens utilizadas na interface  
+| .src/pages/pacientes | Página principal de paciente                  
+
+
 ## Modelo de dados
 
 collection **Profile**
@@ -27,8 +51,8 @@ collection **Profile**
   "complement": ""
 }
 ```
-# Como iniciar a aplicação
-## API
+## Como iniciar a aplicação
+### API
 - É necessário ter Node instalado.
 - É necessário criar o banco de dados no mongoDB local ou no cloud.mongodb.com.
 
@@ -53,7 +77,7 @@ npm install
 ```cl
 npm run dev
 ```
-## APP
+### APP
 - É necessário ter o Node instalado.
 
 ### Executando o projeto
