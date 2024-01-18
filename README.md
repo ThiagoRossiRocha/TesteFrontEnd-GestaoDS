@@ -19,7 +19,7 @@ Avaliar as habilidades do candidato em desenvolvimento front-end, especificament
 | .env                | Variáveis de ambiente                          
             
 
-### APP
+### Front
 | Path | Descrição                               
 | -------------------- | --------------------------------------- 
 | .src/components      | Componentes isolados para reutilização           
@@ -77,7 +77,7 @@ npm install
 ```cl
 npm run dev
 ```
-### APP
+### Front
 - É necessário ter o Node instalado.
 
 ### Executando o projeto
