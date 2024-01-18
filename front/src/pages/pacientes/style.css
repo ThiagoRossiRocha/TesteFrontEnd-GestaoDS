@@ -1,0 +1,79 @@
+.box {
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageLogo {
+  margin: 1vh;
+}
+
+.pacientes {
+  height: auto;
+  max-width: 103.2vh;
+  margin: auto;
+  background-color: white;
+}
+
+.box-pacientes {
+  display: grid;
+  grid-template-columns: 3fr 1.4fr 1.4fr;
+  padding: 2.5vh 4.5vh;
+}
+
+.box-pacientes .container-one {
+  margin: auto;
+}
+
+.box-pacientes .container-two {
+  justify-content: left;
+  margin: auto;
+  align-content: center;
+  align-items: center;
+}
+
+.box-pacientes .container-three {
+  justify-content: left;
+  margin: auto;
+  text-align: center;
+  height: 32px;
+  align-content: center;
+  align-items: center;
+  border-radius: 0.5vh;
+  background-color: #136cdc;
+  color: white;
+}
+
+.button-add-paciente {
+  color: white;
+  border: none;
+  background: none;
+}
+
+.container-three .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.button-table {
+  border: none;
+  background: none;
+}
+
+.button-table-order {
+  border: none;
+  background: none;
+  color: #136cdc;
+}
+
+.box-table {
+  margin: 2.5vh;
+}

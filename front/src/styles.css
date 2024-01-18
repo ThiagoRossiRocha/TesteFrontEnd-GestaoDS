@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("/public/fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "SourceSansPro";
+  font-size: 14px;
+  --blue-primary-color: #136cdc;
+  background-color: #f6f6f6;
+  background: var(--background-color);
+}
+
+.search-box-container {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0.5vh;
+  border: 1px solid var(--Grey-G50---Table-stroke, #e8e8e8);
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 0.5vh;
+  font-size: 14px;
+}
+
+.search-button {
+  border: none;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  border-radius: 0.5vh;
+  color: var(--blue-primary-color);
+  cursor: pointer;
+}
+
+.selected {
+  color: #4f1368;
+}
+
+.nav-link {
+  color: #656565;
+}
