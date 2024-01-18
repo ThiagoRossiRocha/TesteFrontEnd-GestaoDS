@@ -101,4 +101,3 @@ npm start
 | `DELETE /profile/:cpf` | Excluir paciente cadastrado por CPF |
 | `GET /profile-edit/:cpf` | Listar informações do paciente por CPF |
 | `GET /search` | Listar pacientes por pesquisa de texto |
-| --- | --- |
