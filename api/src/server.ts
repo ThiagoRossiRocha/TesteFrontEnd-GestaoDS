@@ -25,8 +25,6 @@ async function main(): Promise<void> {
   app.delete("/profile/:cpf", deleteProfileRoute());
   app.get("/profile-edit/:cpf", getProfileEditRoute());
   app.get("/search", getSearchRoute());
-  app.post("/image-profile", saveImageProfileRoute());
-  app.get("/image-profile", getImageProfileRoute());
 
   const port: any = process.env.PORT || 3030;
   const ip = process.env.IP || '0.0.0.0';

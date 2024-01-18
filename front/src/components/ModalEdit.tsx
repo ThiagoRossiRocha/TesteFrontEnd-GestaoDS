@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { BsSearch } from "react-icons/bs";
 import toast from "react-hot-toast";
-import ImageCropper from "./ImageCropper";
+import profileImage from "../images/profile.png";
 
 interface Props {
   showModal: boolean;
@@ -21,6 +21,7 @@ interface Props {
 
 const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
   const [paginaAtual, setPaginaAtual] = useState("informacoes-basicas");
+  const [activeKey, setActiveKey] = useState("informacoes-basicas");
   const [formData, setFormData] = useState({
     patient: "",
     surname: "",
@@ -66,11 +67,27 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
     };
 
     fetchData();
-  }, [cpf]);
+  }, [cpf, paginaAtual]);
+
+  useEffect(() => {
+    const contatoTab = document.getElementById("contato");
+    if (contatoTab) {
+      contatoTab.click();
+    }
+  }, [paginaAtual]);
 
   const handleNavegacao = (pagina: string) => setPaginaAtual(pagina);
 
-  const handleNext = () => setPaginaAtual("contato");
+const handleNext = () => {
+  setPaginaAtual((prevPagina) => {
+    if (prevPagina !== "contato") {
+      setActiveKey("contato");
+      return "contato";
+    }
+    return prevPagina;
+  });
+};
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -85,7 +102,6 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
         !formData.rg ||
         !formData.gender ||
         !formData.civilStates ||
-        !formData.comments ||
         !formData.cep ||
         !formData.city ||
         !formData.uf ||
@@ -142,21 +158,21 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
     }
   };
 
-  const handleImageUpload = (base64Image: string) => {
-    console.log("Imagem base64:", base64Image);
-  };
-
   return (
     <div>
       <Modal show={showModal} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
-          <Nav variant="tabs" defaultActiveKey={paginaAtual}>
+          <Nav
+            variant="tabs"
+            activeKey={activeKey}
+            onSelect={(key: any) => setActiveKey(key)}
+          >
             <Nav.Item className="d-flex">
               <Nav.Link
                 eventKey="informacoes-basicas"
                 onClick={() => handleNavegacao("informacoes-basicas")}
                 className={`me-2 ${
-                  paginaAtual === "informacoes-basicas" ? "selected" : ""
+                  activeKey === "informacoes-basicas" ? "selected" : ""
                 }`}
               >
                 Informações Básicas
@@ -164,7 +180,7 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
               <Nav.Link
                 eventKey="contato"
                 onClick={() => handleNavegacao("contato")}
-                className={`${paginaAtual === "contato" ? "selected" : ""}`}
+                className={`${activeKey === "contato" ? "selected" : ""}`}
               >
                 Contato
               </Nav.Link>
@@ -177,14 +193,7 @@ const ModalEdit: React.FC<Props> = ({ cpf, showModal, handleClose }) => {
               <Form>
                 <Row>
                   <Col md={4}>
-                    <Form.Group controlId="formFotoPerfil">
-                      <Form.Label>Foto de Perfil</Form.Label>
-                      <ImageCropper
-                          onImageUpload={(base64Image) =>
-                          handleImageUpload(base64Image)
-                        }
-                      />
-                    </Form.Group>
+                    <img src={profileImage} className="mx-auto" />
                   </Col>
                 </Row>
                 <br />

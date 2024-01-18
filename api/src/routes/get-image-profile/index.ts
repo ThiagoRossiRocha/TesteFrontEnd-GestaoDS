@@ -8,7 +8,7 @@ export const getImageProfileRoute = () =>
   getImage.get("/image-profile", async (req, res) => {
 
     const profile = await MongoClient.db.collection("profile");
-    console.log("cheguei")
+    console.log("cheguei");
 
     // const existingUser = await users.findOne({ token: tokenUser });
     // const existingProfile = await profile.findOne({ user_id: existingUser?._id.toHexString() });

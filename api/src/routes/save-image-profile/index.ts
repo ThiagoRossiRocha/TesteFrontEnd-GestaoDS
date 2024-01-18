@@ -8,18 +8,13 @@ const upload = multer({ storage: storage });
 
 export const saveImageProfileRoute = () =>
   saveImage.post("/image-profile", upload.single("croppedImage"), async (req, res) => {
-    const profile = await MongoClient.db.collection("profile");
-    console.log("cheguei")
-    // const file = req.file;
-    // if (!file) {
-    //   return res.status(400).send("Nenhuma imagem foi enviada.");
-    // }
+    const { cpf, image } = req.body;
 
-    // if(!existingUserInProfile){
-    //     await profile.insertOne({ user_id: userId, image: file.buffer });
-    // }
-    // else{
-    //     await profile.updateOne({ user_id: userId },{$set: {image: file.buffer}});
-    // }
-    // res.status(200).json({message: "Dados salvos!"});
+    const profile = await MongoClient.db.collection("profile");
+    const existingUser = await profile.findOne({ cpf: cpf });
+
+    if(!existingUser) return;
+    
+    await profile.updateOne({ cpf: cpf },{$set: {image: image.buffer}});
+    res.status(200).json({message: "Dados salvos!"});
   });
